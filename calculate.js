@@ -18,8 +18,7 @@ function inputClear(){
   history.innerHTML="";
   display.innerHTML="";
   //연산자array 도 빈 array로 초기화
-  Listoperation
-=[];
+  Listoperation=[];
 }
 
 //연산자를 입력했을때 동작하는 함수
@@ -195,12 +194,10 @@ function inputEqual(){
 
   //0으로 나눗셈이 있을 때 막기위한 플래그 초기화
   let zeroDivisionFlag=false;
-  for(let i=0; i<Listoperation
-  .length; i++){
+  for(let i=0; i<Listoperation.length; i++){
       //연산자가 /이고 와 연산자 뒤의 숫자가 0인게 발견되면 플래그를 활성화
-      if(Listoperation
-      [i]=="÷" && numberList[i+1]==0){
-          zeroDivisionFlag=true;
+      if(Listoperation[i]=="÷" && numberList[i+1]==0){
+        zeroDivisionFlag=true;
       }
   }
   //플래그가 활성화된 상태면
@@ -217,12 +214,10 @@ function inputEqual(){
   else{        
       //히스토리에 넣을 내용을 초기화
       let historyString="";
-      for(let i=0; i<Listoperation
-      .length; i++){
+      for(let i=0; i<Listoperation.length; i++){
           //숫자 리스트와 연산자 리스트의 값들을 교차로 입력
           historyString+=String(numberList[i]);
-          historyString+=Listoperation
-        [i];
+          historyString+=Listoperation[i];
       }
       //마지막 숫자를 입력
       historyString+=String(numberList[numberList.length-1]);
@@ -230,16 +225,13 @@ function inputEqual(){
       history.innerHTML=historyString;
       
       //곱셈 나눗셈 먼저 계산
-      calcMulDiv(numberList,Listoperation
-      );
+      calcMulDiv(numberList,Listoperation);
       //덧셈 뺄셈 계산
-      calcPlusMinus(numberList,Listoperation
-      );
+      calcPlusMinus(numberList,Listoperation);
       //display의 값을 결과값으로 변경
       display.innerHTML=numberList[0];
       //연산자array초기화
-      Listoperation
-    =[];
+      Listoperation=[];
   }
 }
 
